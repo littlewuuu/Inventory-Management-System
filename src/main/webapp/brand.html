@@ -21,23 +21,23 @@
     <!--搜索表单-->
     <el-form :inline="true" :model="brand" class="demo-form-inline">
 
-        <el-form-item label="当前状态">
-            <el-select v-model="brand.status" placeholder="当前状态">
+        <el-form-item label="Status">
+            <el-select v-model="brand.status" placeholder="Status">
                 <el-option label="启用" value="1"></el-option>
                 <el-option label="禁用" value="0"></el-option>
             </el-select>
         </el-form-item>
 
-        <el-form-item label="企业名称">
-            <el-input v-model="brand.companyName" placeholder="企业名称"></el-input>
+        <el-form-item label="Brand Name">
+            <el-input v-model="brand.companyName" placeholder="Company Name"></el-input>
         </el-form-item>
 
-        <el-form-item label="品牌名称">
-            <el-input v-model="brand.brandName" placeholder="品牌名称"></el-input>
+        <el-form-item label="Company Name">
+            <el-input v-model="brand.brandName" placeholder="Brand Name"></el-input>
         </el-form-item>
 
         <el-form-item>
-            <el-button type="primary" @click="onSubmit">查询</el-button>
+            <el-button type="primary" @click="onSubmit">Search</el-button>
         </el-form-item>
     </el-form>
 
@@ -45,36 +45,36 @@
 
     <el-row>
 
-        <el-button type="danger" plain @click="deleteByIds">批量删除</el-button>
-        <el-button type="primary" plain @click="dialogVisible = true">新增</el-button>
+        <el-button type="danger" plain @click="deleteByIds">delete</el-button>
+        <el-button type="primary" plain @click="dialogVisible = true">add</el-button>
 
     </el-row>
 
     <!--添加数据对话框表单-->
     <el-dialog
-            title="编辑品牌"
+            title="Add"
             :visible.sync="dialogVisible"
             width="30%"
             >
 
         <el-form ref="form" :model="brand" label-width="80px">
-            <el-form-item label="品牌名称">
+            <el-form-item label="Brand Name">
                 <el-input v-model="brand.brandName"></el-input>
             </el-form-item>
 
-            <el-form-item label="企业名称">
+            <el-form-item label="Company Name">
                 <el-input v-model="brand.companyName"></el-input>
             </el-form-item>
 
-            <el-form-item label="排序">
+            <el-form-item label="Order">
                 <el-input v-model="brand.ordered"></el-input>
             </el-form-item>
 
-            <el-form-item label="备注">
+            <el-form-item label="Remark">
                 <el-input type="textarea" v-model="brand.description"></el-input>
             </el-form-item>
 
-            <el-form-item label="状态">
+            <el-form-item label="Status">
                 <el-switch v-model="brand.status"
                            active-value="1"
                            inactive-value="0"
@@ -83,8 +83,8 @@
 
 
             <el-form-item>
-                <el-button type="primary" @click="addBrand">提交</el-button>
-                <el-button @click="dialogVisible = false">取消</el-button>
+                <el-button type="primary" @click="addBrand">Submit</el-button>
+                <el-button @click="dialogVisible = false">Cancel</el-button>
             </el-form-item>
         </el-form>
 
@@ -93,29 +93,29 @@
 <!-- 修改数据表单-->
     <!--添加数据对话框表单-->
     <el-dialog
-            title="修改数据"
+            title="Modify"
             :visible.sync="updateDialogVisible"
             width="30%"
     >
 
         <el-form ref="form" :model="brand" label-width="80px">
-            <el-form-item label="品牌名称">
+            <el-form-item label="Brand Name">
                 <el-input v-model="brandUpdate.brandName"></el-input>
             </el-form-item>
 
-            <el-form-item label="企业名称">
+            <el-form-item label="Company Name">
                 <el-input v-model="brandUpdate.companyName"></el-input>
             </el-form-item>
 
-            <el-form-item label="排序">
+            <el-form-item label="Order">
                 <el-input v-model="brandUpdate.ordered"></el-input>
             </el-form-item>
 
-            <el-form-item label="备注">
+            <el-form-item label="Remark">
                 <el-input type="textarea" v-model="brandUpdate.description"></el-input>
             </el-form-item>
 
-            <el-form-item label="状态">
+            <el-form-item label="Status">
                 <el-switch v-model="brandUpdate.status"
                            active-value="1"
                            inactive-value="0"
@@ -124,8 +124,8 @@
 
 
             <el-form-item>
-                <el-button type="primary" @click="update">提交</el-button>
-                <el-button @click="UpdateDialogVisible = false">取消</el-button>
+                <el-button type="primary" @click="update">Submit</el-button>
+                <el-button @click="UpdateDialogVisible = false">Cancel</el-button>
             </el-form-item>
         </el-form>
 
@@ -150,34 +150,34 @@
 
             <el-table-column
                     prop="brandName"
-                    label="品牌名称"
+                    label="Brand Name"
                     align="center"
             >
             </el-table-column>
             <el-table-column
                     prop="companyName"
-                    label="企业名称"
+                    label="Company Name"
                     align="center"
             >
             </el-table-column>
             <el-table-column
                     prop="ordered"
                     align="center"
-                    label="排序">
+                    label="Order">
             </el-table-column>
             <el-table-column
                     prop="status"
                     align="center"
-                    label="当前状态">
+                    label="Status">
             </el-table-column>
 
             <el-table-column
                     align="center"
-                    label="操作">
+                    label="Operation">
 <template slot-scope="scope">
                 <el-row>
-                    <el-button type="primary" @click="showDialog(scope.row)">修改</el-button>
-                    <el-button type="danger" @click="deleteById(scope.row.id)">删除</el-button>
+                    <el-button type="primary" @click="showDialog(scope.row)">Modify</el-button>
+                    <el-button type="danger" @click="deleteById(scope.row.id)">Delete</el-button>
                 </el-row>
 </template>
             </el-table-column>
@@ -227,7 +227,7 @@
                         _this.selectAll();
                         //显示提示信息
                         _this.$message({
-                            message: '修改成功',
+                            message: 'Successful',
                             type: 'success'
                         });
 
@@ -242,9 +242,9 @@
 
             },
             deleteById(id){
-                this.$confirm('此操作将永久删除, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('delete permanent', 'attention', {
+                    confirmButtonText: 'confirm',
+                    cancelButtonText: 'cancel',
                     type: 'warning'
                 }).then(() => { //点击确认后
 
@@ -259,7 +259,7 @@
                             _this.selectAll();
                             //显示提示信息
                             _this.$message({
-                                message: '删除成功',
+                                message: 'successful',
                                 type: 'success'
                             });
 
@@ -269,7 +269,7 @@
                 }).catch(() => {//取消操作
                     this.$message({
                         type: 'info',
-                        message: '已取消删除'
+                        message: 'cancelled'
                     });
                 });
 
@@ -296,9 +296,9 @@
             },
             deleteByIds(){//批量删除，把用户勾选的 ID 发送到客户端
 
-                this.$confirm('此操作将永久删除, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('delete permanent', 'attention', {
+                    confirmButtonText: 'confirm',
+                    cancelButtonText: 'cancel',
                     type: 'warning'
                 }).then(() => { //点击确认后
                     //selectedIds存放选中的 id
@@ -319,7 +319,7 @@
 
                             //显示提示信息，从 elementui 找的
                             _this.$message({
-                                message: '批量删除成功',
+                                message: 'successful',
                                 type: 'success'
                             });
 
@@ -329,7 +329,7 @@
                 }).catch(() => {//取消操作
                     this.$message({
                         type: 'info',
-                        message: '已取消删除'
+                        message: 'cancelled'
                     });
                 });
 
@@ -365,7 +365,7 @@
 
                         //显示提示信息，从 elementui 找的
                         _this.$message({
-                            message: '添加成功',
+                            message: 'successful',
                             type: 'success'
                         });
 
@@ -388,12 +388,12 @@
 
             //分页
             handleSizeChange(val) {
-                console.log(`每页 ${val} 条`);
+                console.log(` ${val} per page`);
                 this.pageSize=val;
                 this.selectByPage();
             },
             handleCurrentChange(val) {
-                console.log(`当前页: ${val}`);
+                console.log(`current page: ${val}`);
                 this.currentPage = val;
                 this.selectByPage();
             }
